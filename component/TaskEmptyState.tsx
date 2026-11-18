@@ -1,7 +1,9 @@
-import React from 'react'
+import { Check } from "lucide-react";
 
 export const TaskEmptyState = () => {
   return (
-    <div>TaskEmptyState</div>
-  )
-}
+    <div>
+      <Check />
+    </div>
+  );
+};
