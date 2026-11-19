@@ -21,8 +21,8 @@ export const TaskList = ({ tasks, hasTasks, onToggle, onDelete }: TAskListProps)
       {tasks.map((task) => {
         return (
           <div key={task.id} className="px-3 flex h-15 items-center justify-between hover:bg-green-50 rounded-2xl">
-            <label className="flex gap-3">
-              <div className="relative">
+            <label className="flex gap-3 items-center">
+              <div className="relative top-1">
                 <input
                   type="checkbox"
                   checked={task.completed}
