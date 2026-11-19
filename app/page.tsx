@@ -21,8 +21,11 @@ const Homepage = () => {
   const handleFilter = (filterValue: string) => {
     setFilter(filterValue);
   };
+  const handleDelete = (id: string) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  };
 
-  const visibleTasks = tasks.filter((task) => filter === "All" || (filter === "Active" ? ~task.completed : task.completed));
+  const visibleTasks = tasks.filter((task) => filter === "All" || (filter === "Active" ? !task.completed : task.completed));
 
   return (
     <main className="min-h-screen px-4 py-8 sm:px-8 sm:py-20 bg-[#EAF0EB]">
@@ -31,7 +34,7 @@ const Homepage = () => {
         <TaskForm onCreateTask={createTask} />
         <TaskItem />
         <TaskFilters tasks={visibleTasks} filter={filter} onFilter={handleFilter} />
-        <TaskList />
+        <TaskList tasks={visibleTasks} hasTasks={tasks.length > 0} onToggle={handleToggle} onDelete={handleDelete} />
       </div>
     </main>
   );
