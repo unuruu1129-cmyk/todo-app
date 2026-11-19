@@ -14,13 +14,9 @@ export const TaskFilters = ({ tasks, filter, onFilter }: TaskFilterProps) => {
     <div className="flex gap-7 text-sm ml-8 text-[#7B8680] py-[13.5px] ">
       <div>
         {["All", "Active", "Completed"].map((item) => (
-          <button
-            onClick={handleClick}
-            id={item}
-            className={`hover:text-[#236b53] ${filter === item && "border-b-2 border-b-green-900"}`}
-            key={item}
-          ></button>
+          <button onClick={handleClick} id={item} className={`hover:text-[#236b53] ${filter === item && "border-b-2 border-b-green-900"}`} key={item}></button>
         ))}
+        <span className="text-[#65766C] text-[11px] flex justify-center items-center bg-[#F0F4F1] px-1 py-[2.5px] rounded-md">{tasks.length}</span>
       </div>
     </div>
   );
